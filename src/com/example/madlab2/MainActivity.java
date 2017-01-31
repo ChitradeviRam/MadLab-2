@@ -2,7 +2,7 @@ package com.example.madlab2;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,7 +12,6 @@ import android.widget.TextView;
  
 public class MainActivity extends Activity implements OnClickListener
 {
-    //Defining the Views
     EditText Num1;
     EditText Num2;
     Button Add;
@@ -27,16 +26,14 @@ public class MainActivity extends Activity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
  
-        //Referring the Views
         Num1 = (EditText) findViewById(R.id.editText1);
-        Num2 = (EditText) findViewById(R.id.ed);
+        Num2 = (EditText) findViewById(R.id.editText2);
         Add = (Button) findViewById(R.id.Add);
         Sub = (Button) findViewById(R.id.Sub);
         Mul = (Button) findViewById(R.id.Mul);
         Div = (Button) findViewById(R.id.Div);
         Result = (TextView) findViewById(R.id.textView);
- 
-        // set a listener
+
         Add.setOnClickListener(this);
         Sub.setOnClickListener(this);
         Mul.setOnClickListener(this);
@@ -51,17 +48,13 @@ public class MainActivity extends Activity implements OnClickListener
         float num2 = 0;
         float result = 0;
         String oper = "";
- 
-        // check if the fields are empty
+
         if (TextUtils.isEmpty(Num1.getText().toString()) || TextUtils.isEmpty(Num2.getText().toString()))
                 return;
- 
-        // read EditText and fill variables with numbers
+
         num1 = Float.parseFloat(Num1.getText().toString());
         num2 = Float.parseFloat(Num2.getText().toString());
- 
-        // defines the button that has been clicked and performs the corresponding operation
-        // write operation into oper, we will use it later for output
+
         switch (v.getId()) 
         {
             case R.id.Add:
@@ -83,7 +76,6 @@ public class MainActivity extends Activity implements OnClickListener
             default:
                 break;
         }
-        // form the output line
         Result.setText(num1 + " " + oper + " " + num2 + " = " + result);
     }
 }
